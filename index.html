@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FOF Mumbai Photobooth</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div class="container">
+		<div id="graphic-form">
+			<h1>FOF Mumbai Photobooth</h1>
+			<div class="description">
+				<p>
+					Create your personalized photostrip for FOF Mumbai event! </br> </br> Upload 3 different photos to
+					create a
+					classic
+					<span style="color: #0700d2; font-weight: 500;">photobooth strip</span>
+					to share across social media. Show everyone you're part of Mumbai's premier design celebration!
+				</p>
+			</div>
+
+			<div class="upload-section">
+				<div class="file-input-wrapper">
+					<input type="file" id="imageInput1" accept="image/*" capture="environment" required>
+					<div class="input-buttons">
+						<label for="imageInput1" class="custom-file-input">Upload Photo 1</label> OR
+						<button type="button" class="camera-button" data-target="imageInput1">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path
+									d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+								</path>
+								<circle cx="12" cy="13" r="4"></circle>
+							</svg>
+						</button>
+					</div>
+					<span id="file-name-1" class="file-name"></span>
+				</div>
+
+				<div class="file-input-wrapper">
+					<input type="file" id="imageInput2" accept="image/*" capture="environment" required>
+					<div class="input-buttons">
+						<label for="imageInput2" class="custom-file-input">Upload Photo 2</label> OR
+						<button type="button" class="camera-button" data-target="imageInput2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path
+									d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+								</path>
+								<circle cx="12" cy="13" r="4"></circle>
+							</svg>
+						</button>
+					</div>
+					<span id="file-name-2" class="file-name"></span>
+				</div>
+
+				<div class="file-input-wrapper">
+					<input type="file" id="imageInput3" accept="image/*" capture="environment" required>
+					<div class="input-buttons">
+						<label for="imageInput3" class="custom-file-input">Upload Photo 3</label> OR
+						<button type="button" class="camera-button" data-target="imageInput3">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path
+									d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+								</path>
+								<circle cx="12" cy="13" r="4"></circle>
+							</svg>
+						</button>
+					</div>
+					<span id="file-name-3" class="file-name"></span>
+				</div>
+			</div>
+
+			<button id="generateButton">Create My Photostrip</button>
+			<button id="downloadButton" style="display:none;">Download Photostrip</button>
+			<div class="preview-container">
+				<div class="preview-wrapper">
+					<p id="photostrip-text" style="display:none; color: #0034ef; font-size: 1rem;">Your
+						Photostrip</p>
+					<img id="preview" alt="Generated Photostrip">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Camera modal -->
+	<div id="camera-modal" class="modal">
+		<div class="modal-content">
+			<span class="close-modal">&times;</span>
+			<video id="camera-feed" autoplay></video>
+			<div class="camera-controls">
+				<button id="take-photo" class="camera-control-button">Take Photo</button>
+				<button id="switch-camera" class="camera-control-button">Switch Camera</button>
+			</div>
+			<canvas id="photo-canvas" style="display:none;"></canvas>
+		</div>
+	</div>
+
+	<canvas id="canvas"></canvas>
+	<footer>
+		<p>© FOF MUMBAI. All rights reserved.</p>
+	</footer>
+	<script src="script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+	<script>
+		document.getElementById( 'generateButton' ).addEventListener( 'click', function () {
+			confetti( {
+				particleCount: 100,
+				spread: 100,
+				origin: {y: 0.6},
+				colors: [ '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50' ]
+			} );
+		} );
+	</script>
+</body>
+
+</html>
